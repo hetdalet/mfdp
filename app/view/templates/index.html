@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!--Original author: Roary Tubbs-->
+<!--Edited by Anton Budaevr-->
+<!--https://www.codehim.com/collections/login-page-in-html-with-css-code/-->
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>HTML5 Login Form with validation Example</title>
+  <link rel="stylesheet" href="{{ url_for('static', path='/style.css') }}">
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="login-form-wrap">
+  <h2>Account</h2>
+    {% for error in errors %}
+    <p style="color: red">{{ error }}</p>
+    {% endfor %}
+  <div id="account-balance" >
+    Balance:  {{ balance }}
+  </div>
+  <form id="account-form" action="/transactions" method="post">
+    <p>
+    <input type="number" id="amount" name="amount" placeholder="Enter amount" required><i class="validation"><span></span><span></span></i>
+    </p>
+    <p>
+    <input type="submit" id="submit" value="Deposit">
+    </p>
+    <input type="hidden" id="type" name="type" value="1" required>
+  </form>
+  <div id="create-account-wrap">
+    <p><a href="/auth/logout">Sign out</a><p>
+  </div><!--create-account-wrap-->
+</div><!--login-form-wrap-->
+<!-- partial -->
+</body>
+</html>
